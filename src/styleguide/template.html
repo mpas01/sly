@@ -1,0 +1,72 @@
+﻿<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Style Guide</title>
+    {{> metadata-static}}
+    <link rel="stylesheet" href="/special/styleguide/files/styleguide.css">
+  </head>
+  <body>
+    <div class="show-for-print">Domain.com</div>     
+ 
+    <div id="top" class="page-title">
+      <form class="form float-right">
+        <select id="ssnav">
+          <option value="">Select Component</option>
+          {{#each pages}}
+            <option value="#{{ anchor }}">{{ title }}</option>
+          {{/each}}
+        </select>
+      </form>
+    </div> 
+
+    <div id="code-content">
+      {{#each pages}}
+        <div class="ss-section grid-container" id="{{ anchor }}">
+          <div class="grid-x grid-padding-x">
+            <div class="cell markup-wrapper">
+            {{ body }}
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+    
+    {{> js-footer}}
+    
+    <script>
+    // suppress the code view blocks by default and hide them under a toggle.
+    var $ks = $('#code-content');
+    if ($ks.length) {
+      $ks.find('.ss-code').each(function() {
+        var $code = $(this).find('pre');
+
+        Sbtn = $('<button type="button" class="docs-code-toggle">&lt; Toggle Code Display &gt;</button>');
+        Sbtn.on('click', function() {
+          $code.slideToggle(250);
+        });
+        Sbtn.insertBefore(this);
+        $code.hide(0);
+      });
+    }
+    
+    if($("#ssnav").children('option').length<3) {
+      $("#ssnav").hide();
+    }   
+    else {
+      $("#ssnav").change(function() { 
+        var x = $(this).val() || ''; 
+        if(x!==''){
+        location.hash = '';
+        location.hash = x;
+        }
+        $("#ssnav")[0].selectedIndex = 0;
+      });
+    }
+    </script>
+
+  </body>
+</html>

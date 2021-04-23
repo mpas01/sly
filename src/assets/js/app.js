@@ -1,0 +1,3 @@
+
+$ = window.jQuery;
+$(document).foundation(); 

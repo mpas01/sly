@@ -1,0 +1,14 @@
+.DS_Store
+node_modules
+dist
+*.log
+*.swp
+*.cache
+*.idea
+package-lock.json
+.yarn/**/*
+.yarnrc
+src/assets/**/fonts/**/*
+src/assets/**/vendor/**/*
+!src/assets/js/vendor/foundation.js
+!src/assets/js/vendor/fndtn.js.map

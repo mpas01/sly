@@ -1,0 +1,10 @@
+﻿{ "page": [
+  {  
+    "name": "Terms of Use",
+    "url": "/terms/"
+  },
+  {  
+    "name": "Privacy Policy",
+    "url": "/terms/privacy.html"
+  }
+]} 
